@@ -42,9 +42,9 @@ def test_centre_ranges():
 
 def test_prediction_tables():
     rows = ev.prediction_table(Settings("centre", resource=1))
-    assert [round(r["predicted"], 1) for r in rows] == [4.4, 8.8, 17.5, 35.0] and [round(r["actual"], 2) for r in rows] == [4.38, 8.75, 8.75, 8.75]
+    assert [r["predicted"] for r in rows] == pytest.approx([4.375, 8.75, 17.5, 35.0], abs=1e-6) and [r["actual"] for r in rows] == pytest.approx([4.375, 8.75, 8.75, 8.75], abs=1e-6)
     kom = ev.prediction_table(Settings("centre", resource=0))
-    assert [round(r["predicted"], 1) for r in kom] == [25.0, 50.0, 100.0, 200.0] and [round(r["actual"], 1) for r in kom] == [25.0, 50.0, 91.2, 160.8]
+    assert [r["predicted"] for r in kom] == pytest.approx([25.0, 50.0, 100.0, 200.0], abs=1e-6) and [r["actual"] for r in kom] == pytest.approx([25.0, 50.0, 91.2, 160.8], abs=0.05)
     _has("Vorhersage 4.4 / 8.8 / 17.5 / 35, Neulösung 4.4 / 8.8 / **8.75 / 8.75**", "25 / 50 / 100 / 200 gegen 25 / 50 / 91.2 / 160.8", "bei dem Vierfachen der Grenze verspricht y·Δ 35, die Neulösung findet 8.75", "exakt bis 17.5 Einheiten")
 
 
