@@ -4,7 +4,7 @@
 
 Fünftes Stück der **Lineare-Programmierung-Reihe** der "Konzepte"-Reihe für die Website "Sebastian Hanisch – Operations Research und Machine Learning", Kind der Wurzel [tableau-simplex-demo](https://github.com/sebastian-hanisch/tableau-simplex-demo). Bisher waren die Duale y nur ein Nebenprodukt der Endbasis (Stück 1: aus der Zielzeile, Stück 4: Ergebnis von BTRAN). Hier sind sie das Thema: **y_i ist der Wert einer zusätzlichen Einheit der Ressource i**, also das, was ein Distributionszentrum für eine Stunde mehr Kommissionierung oder einen Quadratmeter mehr Lagerfläche höchstens zahlen dürfte. Die Demo rechnet Duale, reduzierte Kosten und **Bereiche** (Ranging) aus dem Endtableau, prüft sie gegen Neulösungen und gegen HiGHS und zeigt, wo die Schattenpreis-Rechnung endet. Vier Fragen, alle gemessen: **(1) Die Duale** – stimmen starke Dualität und komplementärer Schlupf, und was heißt y geometrisch? **(2) Schattenpreis** – y ist die Steigung des Optimalwerts über die rechte Seite, aber wie weit trägt sie, und was passiert beim Zukauf von Kapazität? **(3) Ranging** – in welchem Bereich bleibt die Endbasis optimal, und wie oft kippt sie schon bei wenig Rauschen? **(4) Entartung** – wann sind die Duale nicht eindeutig?
 
-**Einordnung in die Reihe:** geplant sind zwölf Stücke, dies ist das fünfte (Details in `lp-planung/PLAN.md` des Portfolio-Ordners):
+**Einordnung in die Reihe:** die Reihe hat elf Stücke, dies ist das fünfte (Details in `lp-planung/PLAN.md` des Portfolio-Ordners):
 
 ```
 Tableau-Simplex (Wurzel)                                                                  [gebaut: tableau-simplex-demo]
