@@ -63,7 +63,7 @@ die Steigung des Optimalwerts über die rechte Seite, aber wie weit trägt sie, 
 **(4) Entartung** - wann sind die Duale nicht eindeutig?
 """
 )
-st.caption("Kind von [Tableau-Simplex](https://github.com/sebastian-hanisch/tableau-simplex-demo). Folgestück (Dualer Simplex und Neuoptimierung) ist [noch nicht gebaut].")
+st.caption("Kind von [Tableau-Simplex](https://github.com/sebastian-hanisch/tableau-simplex-demo). Folgestück (Dualer Simplex und Neuoptimierung): [dualer-simplex-demo](https://github.com/sebastian-hanisch/dualer-simplex-demo).")
 
 with st.expander("So funktioniert die Dualität", expanded=True):
     st.markdown(
@@ -72,7 +72,7 @@ with st.expander("So funktioniert die Dualität", expanded=True):
 2. **Komplementärer Schlupf:** eine Ressource mit Schlupf hat den Schattenpreis 0 (mehr davon nützt nichts), ein Dienst mit reduzierten Kosten r_j > 0 wird nicht produziert. Nur bindende Ressourcen haben einen Preis.
 3. **Geometrie (zwei Dienste):** der Zielvektor c ist die Summe der Normalen der bindenden Ressourcen, gewichtet mit ihren Schattenpreisen: c = Σ yᵢ·aᵢ - ein Kräftegleichgewicht im Optimum.
 4. **Schattenpreis = Steigung:** z*(b_i) ist konkav und stückweise linear; y_i ist die Steigung des Stücks, auf dem die aktuelle Basis optimal bleibt. Der **Bereich** (Ranging) sagt, wie weit b_i sich ändern darf, bevor die Basis wechselt und y_i springt.
-5. **Entartung:** ist die Endbasis entartet (eine Basisvariable 0), gibt es mehrere optimale Duale; links- und rechtsseitige Steigung unterscheiden sich, und der Löser wählt einen von ihnen.
+5. **Entartung:** ist die Endbasis entartet (eine Basisvariable 0), kann es mehrere optimale Duale geben (bei nicht entarteter Endbasis nie); dann unterscheiden sich links- und rechtsseitige Steigung, und der Löser wählt einen von ihnen.
         """
     )
 
@@ -276,7 +276,7 @@ st.markdown(
 |---|---|---|
 | **Der Schattenpreis gilt für jede Menge.** | Nur im Bereich der Endbasis. Im Zentrum trägt der Preis der Lagerfläche (0.5) für 17.5 Einheiten mehr, danach bringt jede weitere nichts: bei 4 mal der Grenze sagt y·Δ 35 voraus, die Neulösung findet 8.8. | Wertfunktion, Ranging |
 | **Zukaufen, solange y > Preis, ist einfach.** | Die Regel ist exakt, wenn man nach jedem Bereich neu bepreist; die naive Rechnung (y − Preis) mal Menge überschätzt: 405 statt 160 bei Kommissionierstunden zum Preis 2. | Dualer Simplex (nächstes Stück) |
-| **Die Duale sind eindeutig.** | Bei entarteter Endbasis nicht: es gibt ein Intervall optimaler Schattenpreise. Zufalls- und Mischinstanzen sind fast nie entartet (0 % bis 4 %), Transportprobleme immer, mit unbeschränkter Dual-Seitenfläche. | Entartung, Störung |
+| **Die Duale sind eindeutig.** | Bei entarteter Endbasis oft nicht: dann gibt es ein Intervall optimaler Schattenpreise. Zufalls- und Mischinstanzen sind fast nie entartet (0 % bis 4 %), Transportprobleme immer, mit unbeschränkter Dual-Seitenfläche. | Entartung, Störung |
 | **Ein Bereich ist breit genug.** | Bereiche sind einzeln und eng: im Zentrum im Median +8.8 % und −12.5 % des Bestands; schon 5 % Rauschen auf den Deckungsbeiträgen ändert im Zentrum in 50 % und bei Zufall 10 × 10 in 26 % der Läufe die Basis. | Robuste Optimierung |
 | **Änderungen wirken einzeln.** | Das Ranging gilt für einen Parameter allein; gleichzeitige Änderungen (100-%-Regel) sind hier nicht gebaut. | Parametrische Programmierung |
 | **Duale gibt es immer.** | Bei unzulässigen und unbeschränkten Instanzen gibt es kein optimales Dual (nur ein Zertifikat der Unzulässigkeit bzw. der Unbeschränktheit): die Demo zeigt dann keine Analyse. | Farkas-Lemma |
@@ -306,6 +306,6 @@ Implementiert in `dua_algorithm.py` (Tableau-Simplex mit Endtableau), `dua_sensi
 st.markdown("---")
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Lineare Programmierung: vom Tableau zum Crossover](https://sebastianhanisch.net/konzepte-lineare-programmierung.html)."
 )

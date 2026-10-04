@@ -9,13 +9,13 @@ Fünftes Stück der **Lineare-Programmierung-Reihe** der "Konzepte"-Reihe für d
 ```
 Tableau-Simplex (Wurzel)                                                                  [gebaut: tableau-simplex-demo]
  ├─ Pivotregeln & Entartung ─ Simplex im schlimmsten und im typischen Fall (Klee-Minty)   [gebaut: pivotregeln-demo, klee-minty-demo]
- ├─ Revised Simplex ─ Präsolve, Skalierung & Numerik                                     [gebaut: revised-simplex-demo]  →  [nicht gebaut]
- ├─ Dualität & Sensitivität ─ Dualer Simplex & Neuoptimierung                            [DIESES STÜCK]  →  [nicht gebaut]
- ├─ Ellipsoid-Methode (Kontrast: polynomial in der Theorie)                              [nicht gebaut]
- └─ Innere Punkte ─ PDLP (Verfahren erster Ordnung) ─ Crossover & Simplex gegen Innere Punkte gegen PDLP  [nicht gebaut]
+ ├─ Revised Simplex ─ Präsolve, Skalierung & Numerik                                     [gebaut: revised-simplex-demo]  →  [gebaut: praesolve-demo]
+ ├─ Dualität & Sensitivität ─ Dualer Simplex & Neuoptimierung                            [DIESES STÜCK]  →  [gebaut: dualer-simplex-demo]
+ ├─ Ellipsoid-Methode (Kontrast: polynomial in der Theorie)                              [gebaut: ellipsoid-demo]
+ └─ Innere Punkte ─ PDLP (Verfahren erster Ordnung) ─ Crossover & Simplex gegen Innere Punkte gegen PDLP  [gebaut: innere-punkte-demo, pdlp-demo, crossover-demo]
 ```
 
-Ergebnis in Kürze: **Ein Schattenpreis ist eine Steigung, keine Zahl, die man beliebig weit hochrechnen darf, und bei Entartung ist er nicht einmal eindeutig.** Im Distributionszentrum (drei bindende Ressourcen mit den Preisen 5, 0.5 und 4, eine mit Schlupf 160 und Preis 0) sagt der Preis der Lagerfläche (0.5) den Gewinn einer Erweiterung **exakt bis 17.5 Einheiten** voraus; bei dem Vierfachen der Grenze verspricht y·Δ 35, die Neulösung findet 8.75. Die **naive Zukaufsrechnung** (y − Preis) mal Menge verspricht bei den Kommissionierstunden zum Preis 2 einen Gewinn von 405, tatsächlich sind es 160; die Regel "kaufe bis zur Bereichsgrenze und bepreise neu" trifft das exakte LP mit Zukaufsspalte (880). **Bereiche sind eng**: im Zentrum im Median +8.8 % und −12.5 % des Bestands, und **5 % Rauschen** auf den Deckungsbeiträgen wechselt die optimale Basis im Zentrum in 50 % und bei Zufall 10 × 10 in 26 % der Läufe. **Entartung:** Zufallsinstanzen sind nie entartet (0 %), Mischinstanzen fast nie (0 % bis 4 %), Transportprobleme **immer**, und dort sind die Duale nicht eindeutig (unbeschränkte Dual-Seitenfläche: alle Potenziale lassen sich gemeinsam verschieben).
+Ergebnis in Kürze: **Ein Schattenpreis ist eine Steigung, keine Zahl, die man beliebig weit hochrechnen darf, und bei Entartung kann er nicht einmal eindeutig sein.** Im Distributionszentrum (drei bindende Ressourcen mit den Preisen 5, 0.5 und 4, eine mit Schlupf 160 und Preis 0) sagt der Preis der Lagerfläche (0.5) den Gewinn einer Erweiterung **exakt bis 17.5 Einheiten** voraus; bei dem Vierfachen der Grenze verspricht y·Δ 35, die Neulösung findet 8.75. Die **naive Zukaufsrechnung** (y − Preis) mal Menge verspricht bei den Kommissionierstunden zum Preis 2 einen Gewinn von 405, tatsächlich sind es 160; die Regel "kaufe bis zur Bereichsgrenze und bepreise neu" trifft das exakte LP mit Zukaufsspalte (880). **Bereiche sind eng**: im Zentrum im Median +8.8 % und −12.5 % des Bestands, und **5 % Rauschen** auf den Deckungsbeiträgen wechselt die optimale Basis im Zentrum in 50 % und bei Zufall 10 × 10 in 26 % der Läufe. **Entartung:** Zufallsinstanzen sind nie entartet (0 %), Mischinstanzen fast nie (0 % bis 4 %), Transportprobleme **immer**, und dort sind die Duale nicht eindeutig (unbeschränkte Dual-Seitenfläche: alle Potenziale lassen sich gemeinsam verschieben).
 
 | Frage | Ergebnis (Distributionszentrum, Standard-LP max c·x; Kreuzprüfung mit HiGHS und Neulösungen; Median über 5 feste Instanzen, Seeds 100000–100004, Rauschen und Entartungsanteile über 50 Instanzen, Seeds 200000–200049; vollständig deterministisch) |
 |---|---|
@@ -91,4 +91,4 @@ Tests: `pip install -r requirements-dev.txt` und `python -m pytest tests/ -W err
 - Dantzig, G. B. (1963). *Linear Programming and Extensions.* Princeton University Press.
 - Gal, T. (1979). *Postoptimal Analyses, Parametric Programming, and Related Topics.* McGraw-Hill (nur genannt).
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning.
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Lineare Programmierung: vom Tableau zum Crossover](https://sebastianhanisch.net/konzepte-lineare-programmierung.html).
