@@ -63,6 +63,19 @@ die Steigung des Optimalwerts über die rechte Seite, aber wie weit trägt sie, 
 **(4) Entartung** - wann sind die Duale nicht eindeutig?
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/lp-dualitaet-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Ein Distributionszentrum plant seine Dienste so, dass der Gewinn möglichst groß wird, ohne die knappen Vorräte an Kommissionierstunden, Lagerfläche und Rampenzeit zu überziehen. Der **Schattenpreis** einer Ressource sagt, wie viel Gewinn eine zusätzliche Einheit davon einbringt. Wer ihn kennt, weiß, wie viel er für mehr Stunden oder mehr Fläche höchstens zahlen darf.
+
+Der Schattenpreis ist aber nur eine Steigung. Er gilt in einem **Bereich**, und jenseits der Grenze ändert sich der Plan. Die Demo liest Preise und Bereiche aus dem Endtableau des Simplex ab, vergleicht sie mit einer Neulösung und zeigt, wo die Rechnung endet: beim Zukauf, bei Rauschen auf den Gewinnen und bei Entartung, wo die Preise nicht eindeutig sind.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/lp-dualitaet-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption("Kind von [Tableau-Simplex](https://github.com/sebastian-hanisch/tableau-simplex-demo). Folgestück (Dualer Simplex und Neuoptimierung): [dualer-simplex-demo](https://github.com/sebastian-hanisch/dualer-simplex-demo).")
 
 with st.expander("So funktioniert die Dualität", expanded=True):
@@ -286,6 +299,24 @@ st.markdown(
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/lp-dualitaet-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind der Gewinn $c$ je Einheit der Dienste, der Verbrauch $A$ der knappen Ressourcen je Einheit und die Bestände $b$. Gesucht sind die Mengen $x$ mit größtem Gewinn $c^\top x$ und als zweite Antwort die Schattenpreise $y$ der Ressourcen samt dem Bereich, in dem sie gelten.
+
+| Symbol | Bedeutung |
+|---|---|
+| $x$, $c$ | Mengen der Dienste und Gewinn (Deckungsbeitrag) je Einheit |
+| $A$, $b$ | Verbrauch je Einheit und Bestand der knappen Ressourcen |
+| $y_i$ | Schattenpreis der Ressource $i$: Wert einer zusätzlichen Einheit (Dualvariable) |
+| $B$ | Basis: ausgewählte Spalten, die die optimale Ecke festlegen |
+| $r_j$ | reduzierte Kosten der Spalte $j$: $y^\top a_j - c_j$ |
+| $\delta$ | Änderung des betrachteten Parameters (rechte Seite $b_i$ oder Deckungsbeitrag $c_j$) |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/lp-dualitaet-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Primal und Dual.** $\max c^\top x$ unter $Ax \le b,\ x \ge 0$ und $\min b^\top y$ unter $A^\top y \ge c,\ y \ge 0$; für $\ge$-Zeilen ist $y \le 0$, für $=$-Zeilen ist $y$ frei. **Starke Dualität** $c^\top x^* = b^\top y^*$; **komplementärer Schlupf** $y_i (b_i - a_i^\top x) = 0$ und $x_j (a_j^\top y - c_j) = 0$.
