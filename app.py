@@ -2,7 +2,7 @@
 Sebastian Hanisch - Operations Research und Machine Learning
 
 Fünftes Stück der Lineare-Programmierung-Reihe der "Konzepte"-Reihe: Die Duale y der Endbasis sind die Schattenpreise der Ressourcen. Die Demo zeigt die Zertifikate (starke Dualität, komplementärer Schlupf),
-die Steigung der Wertfunktion und wie weit sie trägt (Ranging), den Zukauf von Kapazität und die Entartung, bei der die Duale nicht eindeutig sind.
+die Steigung der Wertfunktion und wie weit sie reicht (Ranging), den Zukauf von Kapazität und die Entartung, bei der die Duale nicht eindeutig sind.
 
 Lauffähig mit: streamlit run app.py
 """
@@ -59,7 +59,7 @@ st.markdown(
     """
 **Fünftes Stück der Lineare-Programmierung-Reihe.** Bisher waren die Duale y nur ein Nebenprodukt der Endbasis. Hier sind sie das Thema: **y_i ist der Wert einer zusätzlichen Einheit der Ressource i** - was ein Distributionszentrum für eine
 Stunde mehr Kommissionierung oder einen Quadratmeter mehr Lager zahlen dürfte. Vier Fragen, alle gemessen: **(1) Die Duale** - stimmen starke Dualität und komplementärer Schlupf, und was heißt y geometrisch? **(2) Schattenpreis** - y ist
-die Steigung des Optimalwerts über die rechte Seite, aber wie weit trägt sie, und was passiert beim Zukauf? **(3) Ranging** - in welchem Bereich bleibt die Endbasis optimal, und wie oft kippt sie schon bei wenig Rauschen?
+die Steigung des Optimalwerts über die rechte Seite, aber wie weit reicht sie, und was passiert beim Zukauf? **(3) Ranging** - in welchem Bereich bleibt die Endbasis optimal, und wie oft kippt sie schon bei wenig Rauschen?
 **(4) Entartung** - wann sind die Duale nicht eindeutig?
 """
 )
@@ -287,7 +287,7 @@ st.markdown(
     """
 | Annahme | Was passiert, wenn sie verletzt ist | Wer setzt an |
 |---|---|---|
-| **Der Schattenpreis gilt für jede Menge.** | Nur im Bereich der Endbasis. Im Zentrum trägt der Preis der Lagerfläche (0.5) für 17.5 Einheiten mehr, danach bringt jede weitere nichts: bei 4 mal der Grenze sagt y·Δ 35 voraus, die Neulösung findet 8.8. | Wertfunktion, Ranging |
+| **Der Schattenpreis gilt für jede Menge.** | Nur im Bereich der Endbasis. Im Zentrum gilt der Preis der Lagerfläche (0.5) für 17.5 Einheiten mehr, danach bringt jede weitere nichts: bei 4 mal der Grenze sagt y·Δ 35 voraus, die Neulösung findet 8.8. | Wertfunktion, Ranging |
 | **Zukaufen, solange y > Preis, ist einfach.** | Die Regel ist exakt, wenn man nach jedem Bereich neu bepreist; die naive Rechnung (y − Preis) mal Menge überschätzt: 405 statt 160 bei Kommissionierstunden zum Preis 2. | Dualer Simplex (nächstes Stück) |
 | **Die Duale sind eindeutig.** | Bei entarteter Endbasis oft nicht: dann gibt es ein Intervall optimaler Schattenpreise. Zufalls- und Mischinstanzen sind fast nie entartet (0 % bis 4 %), Transportprobleme immer, mit unbeschränkter Dual-Seitenfläche. | Entartung, Störung |
 | **Ein Bereich ist breit genug.** | Bereiche sind einzeln und eng: im Zentrum im Median +8.8 % und −12.5 % des Bestands; schon 5 % Rauschen auf den Deckungsbeiträgen ändert im Zentrum in 50 % und bei Zufall 10 × 10 in 26 % der Läufe die Basis. | Robuste Optimierung |
