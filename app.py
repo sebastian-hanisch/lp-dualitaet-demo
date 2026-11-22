@@ -59,7 +59,7 @@ st.markdown(
     """
 **Fünftes Stück der Lineare-Programmierung-Reihe.** Bisher waren die Duale y nur ein Nebenprodukt der Endbasis. Hier sind sie das Thema: **y_i ist der Wert einer zusätzlichen Einheit der Ressource i** - was ein Distributionszentrum für eine
 Stunde mehr Kommissionierung oder einen Quadratmeter mehr Lager zahlen dürfte. Vier Fragen, alle gemessen: **(1) Die Duale** - stimmen starke Dualität und komplementärer Schlupf, und was heißt y geometrisch? **(2) Schattenpreis** - y ist
-die Steigung des Optimalwerts über die rechte Seite, aber wie weit reicht sie, und was passiert beim Zukauf? **(3) Ranging** - in welchem Bereich bleibt die Endbasis optimal, und wie oft kippt sie schon bei wenig Rauschen?
+die Steigung des Optimalwerts über die rechte Seite, aber wie weit reicht sie, und was passiert beim Zukauf? **(3) Ranging** - in welchem Bereich bleibt die Endbasis optimal, und wie oft wechselt sie schon bei wenig Rauschen?
 **(4) Entartung** - wann sind die Duale nicht eindeutig?
 """
 )
@@ -230,8 +230,8 @@ elif step == 3:
                      hide_index=True, width="stretch")
     elif cchk is not None:
         st.info(f"Auf dieser Seite hat der Dienst {inst.names[vj]} keine endliche Kostengrenze.")
-    st.markdown("**Wie oft kippt die Basis unter Kostenrauschen?** (50 Läufe, multiplikatives Rauschen der Deckungsbeiträge; 🔬 auf Abruf)")
-    if st.button("Basiskipp berechnen", key="flip_start"):
+    st.markdown("**Wie oft wechselt die Basis unter Kostenrauschen?** (50 Läufe, multiplikatives Rauschen der Deckungsbeiträge; 🔬 auf Abruf)")
+    if st.button("Basiswechsel berechnen", key="flip_start"):
         ss["flip_done"] = settings
     if ss.get("flip_done") == settings:
         with st.spinner("Rechne..."):

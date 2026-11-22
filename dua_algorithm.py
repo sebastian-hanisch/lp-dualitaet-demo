@@ -1,4 +1,4 @@
-"""Dichtes Tableau-Simplex (Kern aus den Stücken 1-4, Dantzig-Regel mit Bland-Notbremse gegen Zyklen) mit Endtableau: Basis, Duale y (Zeilenorientierung), reduzierte Kosten und B^-1 stehen im Endtableau."""
+"""Dichtes Tableau-Simplex (Kern aus den Stücken 1-4, Dantzig-Regel mit Bland-Regel als Anti-Cycling-Regel) mit Endtableau: Basis, Duale y (Zeilenorientierung), reduzierte Kosten und B^-1 stehen im Endtableau."""
 
 from dataclasses import dataclass, field
 
